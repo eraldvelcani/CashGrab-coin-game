@@ -35,13 +35,13 @@ function incrPoints() {
     }
 }
 
-function collectCoin() {
+
+function collectCoin(e) {
     incrPoints();
     this.classList.add('clicked');
     setTimeout(() => this.remove(), 2000);
-    spawnCoins();
-};
-
+    spawnCoin();
+}
 
 function incrTime() {
     let min = Math.floor(seconds / 60);
@@ -75,6 +75,6 @@ function createCoin() {
     coin1.style.left = `${x}px`;
     coin1.style.top = `${y}px`;
     coin1.innerHTML = `<img src="./img/dollar.png" style="transform: rotate(${Math.random() * 360}deg)" alt="">`;
-    coin1.addEventListener('click', () => collectCoin());
+    coin1.addEventListener('click', collectCoin);
     gameContainer.appendChild(coin1);
 }
