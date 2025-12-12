@@ -1,1 +1,1 @@
-[Visit CashGrab](cash-grab-coin-game.vercel.app)
+[Visit CashGrab](https://cash-grab-coin-game.vercel.app/)
