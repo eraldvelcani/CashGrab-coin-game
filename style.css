@@ -9,7 +9,7 @@ h1, #score, #time {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-#message {
+#message1, #message2, #message3 {
     font-size: clamp(1.5rem, 1vw, 3rem);
 }
 
@@ -85,7 +85,7 @@ body {
     right: 20px;
 }
 
-#message {
+#message1, #message2, #message3 {
     position: absolute;
     top: 0;
     left: 100%;
@@ -98,7 +98,7 @@ body {
     opacity: 0;
 }   
 
-#message.visible {
+#message1.visible, #message2.visible, #message3.visible {
     opacity: 1;
     transform: translate(-100%, 9%);
 

@@ -1,7 +1,9 @@
 const screen = document.querySelectorAll('.screen');
 const gameContainer = document.querySelector('.game-container');
 const start = document.getElementById('start-btn');
-const message = document.getElementById('message');
+const message1 = document.getElementById('message1');
+const message2 = document.getElementById('message2');
+const message3 = document.getElementById('message3');
 const time = document.getElementById('time');
 const score = document.getElementById('score');
 
@@ -19,8 +21,19 @@ function getRandCoord() {
 function incrPoints() {
     points++;
     score.innerHTML = `Score: ${points}`;
-    if (points > 19) {
-        message.classList.add('visible');
+    if (points === 20) {
+        message1.classList.add('visible');
+        setTimeout(() => message1.classList.remove('visible'), 3000);
+    }
+    if (points === 25) {
+        message2.classList.add('visible');
+        setTimeout(() => message2.classList.remove('visible'), 3000);
+
+    }
+    if (points === 1000000) {
+        message3.classList.add('visible');
+        setTimeout(() => message3.classList.remove('visible'), 3000);
+
     }
 }
 
@@ -41,6 +54,11 @@ function incrTime() {
     seconds++;
 }
 
+function spawnCoin() {
+    setTimeout(createCoin, 1200);
+    setTimeout(createCoin, 1400);
+}
+
 function startGame() {
     setInterval(incrTime, 1000);
 };
@@ -58,7 +76,7 @@ function createCoin() {
     const {x, y} = getRandCoord();
     coin1.style.left = `${x}px`;
     coin1.style.top = `${y}px`;
-    coin1.innerHTML = `<img src="${coin1.src}" style="transform rotate(${Math.random() * 360}deg)" alt="">`;
-    coin1.addEventListener('click', collectCoin());
+    coin1.innerHTML = `<img src="${coin1.src}" style="transform: rotate(${Math.random() * 360}deg)" alt="">`;
+    coin1.addEventListener('click', () => collectCoin());
     gameContainer.appendChild(coin1);
 }
