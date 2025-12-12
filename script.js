@@ -25,15 +25,13 @@ function incrPoints() {
         message1.classList.add('visible');
         setTimeout(() => message1.classList.remove('visible'), 3000);
     }
-    if (points === 25) {
+    if (points === 500) {
         message2.classList.add('visible');
         setTimeout(() => message2.classList.remove('visible'), 3000);
-
     }
     if (points === 1000000) {
         message3.classList.add('visible');
         setTimeout(() => message3.classList.remove('visible'), 3000);
-
     }
 }
 
@@ -41,7 +39,7 @@ function collectCoin() {
     incrPoints();
     this.classList.add('clicked');
     setTimeout(() => this.remove(), 2000);
-    addInsects();
+    spawnCoins();
 };
 
 
@@ -76,7 +74,7 @@ function createCoin() {
     const {x, y} = getRandCoord();
     coin1.style.left = `${x}px`;
     coin1.style.top = `${y}px`;
-    coin1.innerHTML = `<img src="${coin1.src}" style="transform: rotate(${Math.random() * 360}deg)" alt="">`;
+    coin1.innerHTML = `<img src="./img/dollar.png" style="transform: rotate(${Math.random() * 360}deg)" alt="">`;
     coin1.addEventListener('click', () => collectCoin());
     gameContainer.appendChild(coin1);
 }
