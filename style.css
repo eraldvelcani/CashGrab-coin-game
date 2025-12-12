@@ -5,6 +5,23 @@
     box-sizing: border-box;
 }
 
+h1, #score, #time {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+#message {
+    font-size: clamp(1.5rem, 1vw, 3rem);
+}
+
+.btn {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  padding: 18px 32px;
+}
+
+.coin {
+  max-height: clamp(6rem, 12vw, 10rem);
+}
+
 
 body {
     font-family: 'Jersey 25', sans-serif;
@@ -15,18 +32,19 @@ body {
     background-color: burlywood;
 }
 
-.screen-wrapper {
+.screen {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
 }
 
-.screen {
+/* .screen {
   transform: scale(1.6);
   transform-origin: center;
-}
+} */
 
 .coin {
     max-height: 6rem;
@@ -47,4 +65,61 @@ body {
 
 .screen.up {
     margin-top: -100vh;
+}
+
+.game-container {
+    position: relative;
+}
+
+#time, #score {
+    position: absolute;
+    top: 20px;
+}
+
+#time {
+    left: 20px;
+}
+
+#score {
+    right: 20px;
+}
+
+#message {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translate(-100%, -9%);
+    transition: transform 0.4s ease-in;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    padding: 20px;
+    z-index: 9999;
+    opacity: 0;
+}   
+
+#message.visible {
+    opacity: 1;
+    transform: translate(-100%, 9%);
+
+}
+
+.coin1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.coin1 img {
+    width: 90px;
+    height: 90px;
+}
+
+.coin1.clicked {
+    transform: translate(-50%, -50%) scale(0);
 }
